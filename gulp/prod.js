@@ -3,14 +3,14 @@ const gulp = require('gulp');
 // HTML
 const fileInclude = require('gulp-file-include');
 const htmlclean = require('gulp-htmlclean');
-const webpHTML = require('gulp-webp-html');
+const webImagesHTML = require("gulp-web-images-html");
 
 // SASS
 const sass = require('gulp-sass')(require('sass'));
 const sassGlob = require('gulp-sass-glob');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
-const webpCss = require('gulp-webp-css');
+const webImagesCSS = require("gulp-web-images-css");
 
 const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
@@ -26,6 +26,7 @@ const changed = require('gulp-changed');
 const imagemin = require('gulp-imagemin');
 const avif = require('gulp-avif');
 const webp = require('gulp-webp');
+let webpImagesHtml = require("gulp-web-images-html");
 
 
 gulp.task('clean:prod', function (done) {
@@ -58,7 +59,7 @@ gulp.task('html:prod', function () {
 		.pipe(changed('./dist/'))
 		.pipe(plumber(plumberNotify('HTML')))
 		.pipe(fileInclude(fileIncludeSetting))
-		.pipe(webpHTML())
+		.pipe(webImagesHTML({mode: 'all'}))
 		.pipe(htmlclean())
 		.pipe(gulp.dest('./dist/'));
 });
@@ -70,7 +71,7 @@ gulp.task('sass:prod', function () {
 		.pipe(plumber(plumberNotify('SCSS')))
 		.pipe(autoprefixer())
 		.pipe(sassGlob())
-		.pipe(webpCss())
+		.pipe(webImagesCSS({mode: 'all'}))
 		.pipe(groupMedia())
 		.pipe(sass())
 		.pipe(cleanCSS())
@@ -78,17 +79,19 @@ gulp.task('sass:prod', function () {
 });
 
 gulp.task('images:prod', function () {
-	return gulp
-		.src('./src/img/**/*')
-		.pipe(changed('./dist/img/'))
-		.pipe(webp())
-		.pipe(avif())
-		.pipe(gulp.dest('./dist/img/'))
-		.pipe(gulp.src('./src/img/**/*'))
-		.pipe(changed('./dist/img/'))
-		.pipe(imagemin({ verbose: true }))
-		.pipe(gulp.dest('./dist/img/'));
+  return gulp
+    .src(['./src/img/**/*.*', '!./src/img/**/*.svg'])
+    .pipe(changed('./dist/img/'))
+    .pipe(avif()) // Exclude SVG from AVIF conversion
+    .pipe(gulp.src('./src/img/**/*.*'))
+    .pipe(webp()) // Exclude SVG from WebP conversion
+    .pipe(gulp.dest('./dist/img/'))
+    .pipe(gulp.src('./src/img/**/*'))
+    .pipe(changed('./dist/img/'))
+    .pipe(imagemin({ verbose: true })) // Exclude SVG from general imagemin
+    .pipe(gulp.dest('./dist/img/'));
 });
+
 
 gulp.task('fonts:prod', function () {
 	return gulp
