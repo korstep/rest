@@ -14,9 +14,9 @@ const imagemin = require('gulp-imagemin');
 const changed = require('gulp-changed');
 
 gulp.task('clean:dev', function (done) {
-	if (fs.existsSync('./build/')) {
+	if (fs.existsSync('./dist/')) {
 		return gulp
-			.src('./build/', { read: false })
+			.src('./dist/', { read: false })
 			.pipe(clean({ force: true }));
 	}
 	done();
@@ -41,10 +41,10 @@ gulp.task('html:dev', function () {
 	return (
 		gulp
 			.src(['./src/html/**/*.html', '!./src/html/blocks/*.html'])
-			.pipe(changed('./build/', { hasChanged: changed.compareContents }))
+			.pipe(changed('./dist/', { hasChanged: changed.compareContents }))
 			.pipe(plumber(plumberNotify('HTML')))
 			.pipe(fileInclude(fileIncludeSetting))
-			.pipe(gulp.dest('./build/'))
+			.pipe(gulp.dest('./dist/'))
 	);
 });
 
@@ -52,45 +52,45 @@ gulp.task('sass:dev', function () {
 	return (
 		gulp
 			.src('./src/scss/*.scss')
-			.pipe(changed('./build/css/'))
+			.pipe(changed('./dist/css/'))
 			.pipe(plumber(plumberNotify('SCSS')))
 			.pipe(sourceMaps.init())
 			.pipe(sassGlob())
 			.pipe(sass())
 			.pipe(sourceMaps.write())
-			.pipe(gulp.dest('./build/css/'))
+			.pipe(gulp.dest('./dist/css/'))
 	);
 });
 
 gulp.task('images:dev', function () {
 	return gulp
 		.src('./src/img/**/*')
-		.pipe(changed('./build/img/'))
-		.pipe(gulp.dest('./build/img/'));
+		.pipe(changed('./dist/img/'))
+		.pipe(gulp.dest('./dist/img/'));
 });
 
 gulp.task('fonts:dev', function () {
 	return gulp
 		.src('./src/fonts/**/*')
-		.pipe(changed('./build/fonts/'))
-		.pipe(gulp.dest('./build/fonts/'));
+		.pipe(changed('./dist/fonts/'))
+		.pipe(gulp.dest('./dist/fonts/'));
 });
 
 gulp.task('files:dev', function () {
 	return gulp
 		.src('./src/files/**/*')
-		.pipe(changed('./build/files/'))
-		.pipe(gulp.dest('./build/files/'));
+		.pipe(changed('./dist/files/'))
+		.pipe(gulp.dest('./dist/files/'));
 });
 
 gulp.task('js:dev', function () {
 	return gulp
 		.src('./src/js/*.js')
-		.pipe(changed('./build/js/'))
+		.pipe(changed('./dist/js/'))
 		.pipe(plumber(plumberNotify('JS')))
 		// .pipe(babel())
 		.pipe(webpack(require('./../webpack.config.js')))
-		.pipe(gulp.dest('./build/js/'));
+		.pipe(gulp.dest('./dist/js/'));
 });
 
 const serverOptions = {
@@ -99,7 +99,7 @@ const serverOptions = {
 };
 
 gulp.task('server:dev', function () {
-	return gulp.src('./build/').pipe(server(serverOptions));
+	return gulp.src('./dist/').pipe(server(serverOptions));
 });
 
 gulp.task('watch:dev', function () {
