@@ -1,0 +1,8 @@
+@mixin button-type-1 {
+  display: flex;
+  padding: 20px 40px;
+  align-items: center;
+  gap: 1vw;
+  background: $accent-clr;
+  color: $secondary-clr
+}
