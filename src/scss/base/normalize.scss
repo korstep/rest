@@ -1,3 +1,37 @@
-html {
+@import "../ui/typography";
+html, body {
 	scroll-behavior: smooth;
+  color: $primary-clr;
+  @include text-m;
+  background: $primary-clr;
+}
+
+svg {
+  fill: currentColor;
+}
+
+
+.container {
+  margin: 0 auto;
+  width: 1440px;
+  max-width: 100%;
+  height: 100%;
+}
+
+.accented {
+  @include text-accented
+}
+
+.bold {
+  font-weight: 800 !important;
+}
+
+h1 {
+  @include heading-h1
+}
+h2 {
+  @include heading-h2
+}
+h3 {
+  @include heading-h3
 }
