@@ -1,0 +1,33 @@
+.header {
+  height: max(7vh, 35px);
+  padding-top: max(min(2.7vh, 35px), 20px);
+  font-weight: 700;
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+  }
+  &__logo {
+    display: flex;
+    column-gap: min(10px, 1.5vw);
+  }
+  &__icon {
+    aspect-ratio: 16 / 6;
+  }
+  &__hr {
+    width: 2px;
+    background-color: $primary-clr;
+  }
+  &__date {
+    white-space: nowrap;
+  }
+  &__location {
+    white-space: nowrap;
+  }
+  &__nav {
+    display: flex;
+    column-gap: 1.8vw;
+    color: $primary-clr-type-2;
+    align-self: center;
+  }
+}
