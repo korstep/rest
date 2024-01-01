@@ -1,8 +1,13 @@
+@import "typography";
+
 @mixin button-type-1 {
-  display: flex;
+  @include text-xl;
   padding: 20px 40px;
+  display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 20px;
+  line-height: 100%;
+  font-weight: 700;
   background: $accent-clr;
   color: $secondary-clr
 }
