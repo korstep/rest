@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Montserrat:wght@400;800&display=swap');
+
+@mixin heading-h1 {
+  color: #FFF;
+  font-family: Bakbak One, serif;
+  font-size: 120px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 4.8px;
+}
+
+@mixin heading-h2 {
+  font-family: Bakbak One, serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 115%;
+}
+
+@mixin heading-h3 {
+  font-family: Montserrat, serif;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 125%;
+  text-transform: uppercase;
+}
+
+@mixin text-xl {
+  font-family: Montserrat, serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+@mixin text-l {
+  color: $secondary-clr-type-1;
+  font-family: Montserrat, serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 120% */
+}
+
+@mixin text-m {
+  font-family: Montserrat, serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 135%;
+}
+
+@mixin text-accented {
+  font-weight: 800;
+  background: $accent-clr;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
