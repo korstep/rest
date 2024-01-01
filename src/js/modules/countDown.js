@@ -2,8 +2,10 @@ const daysElement = document.getElementById('days')
 const hoursElement = document.getElementById('hours')
 const minutesElement = document.getElementById('minutes')
 const secondsElement = document.getElementById('seconds')
+const eventDate = document.getElementById('eventDate')
 
 const expirationDate = new Date(new Date().setDate(new Date().getDate() + 65)).getTime();
+eventDate.innerHTML = new Intl.DateTimeFormat('en-GB', {  day: 'numeric',month: 'short', year: 'numeric' }).format(expirationDate);
 
 setInterval(() => {
 
