@@ -47,8 +47,8 @@
       flex-direction: column;
       justify-content: center;
       #{$self}__title {
-        text-transform: uppercase;
         @include text-xl;
+        text-transform: uppercase;
         color: $primary-clr-type-3;
       }
       #{$self}__value {
@@ -67,7 +67,6 @@
     &-title {
       @include heading-h3;
       color: $primary-clr-type-1;
-      text-transform: uppercase;
     }
   }
   &__event {
