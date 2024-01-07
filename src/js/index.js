@@ -1,1 +1,2 @@
-import './modules/countDown';
+import './modules/countDown'
+import './modules/faq'
