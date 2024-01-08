@@ -16,6 +16,7 @@
     row-gap: 1vh;
 		padding: clamp(15px, 1.85vh, 20px) clamp(15px, 1.05vw, 20px);
 		border: 1px solid $secondary-clr;
+    cursor: pointer;
 		&__head {
 			display: flex;
 			justify-content: space-between;
@@ -29,7 +30,6 @@
 			width: 20px;
 			height: 20px;
 			transition: transform 0.5s ease;
-      cursor: pointer;
 		}
 		&__answer {
 			display: none;
