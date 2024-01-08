@@ -1,0 +1,18 @@
+.benefits {
+	&__body {
+    padding: 50px 0;
+		display: flex;
+		justify-content: space-between;
+		color: $secondary-clr;
+		text-transform: uppercase;
+	}
+	&__item {
+		&-title {
+			font-size: 67px;
+      line-height: 135%;
+		}
+    &-text {
+      @include text-l;
+    }
+	}
+}
