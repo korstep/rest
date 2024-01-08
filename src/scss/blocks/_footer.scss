@@ -1,6 +1,5 @@
 .footer {
   background-color: $secondary-clr;
-  //position: relative;
 
   &__body {
     display: grid;
@@ -17,7 +16,6 @@
     position: relative;
 
     &::after {
-      z-index: $zindex-s;
       content: "";
       position: absolute;
       top: 0;
@@ -29,10 +27,6 @@
       background-position: center;
       background-size: cover;
       opacity: 0.3;
-    }
-
-    * {
-      z-index: $zindex-m;
     }
     &-text {
       @include text-xl;

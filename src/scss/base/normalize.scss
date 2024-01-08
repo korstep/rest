@@ -1,4 +1,8 @@
 @import "../ui/typography";
+* {
+  z-index: $zindex-s;
+}
+
 html, body {
 	scroll-behavior: smooth;
   color: $primary-clr;
