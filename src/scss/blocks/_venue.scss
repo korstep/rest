@@ -1,6 +1,7 @@
 .venue {
 	position: relative;
-		background-color: $secondary-clr;
+  background-color: $secondary-clr;
+  padding: clamp(80px, 16.6vh, 180px) 0;
 	&::after {
 		content: '';
 		position: absolute;
@@ -14,7 +15,6 @@
     opacity: 0.3;
 	}
 	&__body {
-		padding: 9.375vh 0;
 		display: flex;
     flex-direction: column;
     row-gap: max(3.75vh, 25px);
