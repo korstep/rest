@@ -1,157 +1,165 @@
-@import 'src/scss/ui/animations';
-@import 'src/scss/ui/buttons';
 .representation {
-  $self: &;
-  display: flex;
-  flex-direction: column;
-  background-image: url("./../../img/cityBackground.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: $secondary-clr;
-  min-height: 100svh;
-  .container {
-    //max-height: 100%;
-    height: auto;
-  }
-  &__body {
-    margin-bottom: auto;
+	$self: &;
+	display: flex;
+	flex-direction: column;
+	background-image: url('./../../img/cityBackground.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-color: $secondary-clr;
+	min-height: 100svh;
+  padding: 0;
+	.container {
+		height: auto;
+	}
+	&__body {
+		margin-bottom: auto;
 
-    & .header {
-      margin-bottom: 9vh;
-    }
-  }
-  &__event-info{
-    margin-bottom: 1.05vh;
-    display: grid;
-    grid-template-areas: "title1 title1 title1" "title2 date location";
+		& .header {
+			margin-bottom: 9vh;
+		}
+	}
+	&__event-info {
+		margin-bottom: 1.05vh;
+		display: grid;
+		grid-template-areas: 'title1 title1 title1' 'title2 date location';
 
-    #{$self}__title-part1 {
-      grid-area: title1;
-    }
+		#{$self}__title-part1 {
+			grid-area: title1;
+		}
 
-    #{$self}__title-part2 {
-      grid-area: title2;
-    }
+		#{$self}__title-part2 {
+			grid-area: title2;
+		}
 
-    #{$self}__date {
-      grid-area: date;
-    }
+		#{$self}__date {
+			grid-area: date;
+		}
 
-    #{$self}__location {
-      grid-area: location;
-    }
+		#{$self}__location {
+			grid-area: location;
+		}
 
-    #{$self}__date, #{$self}__location {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      #{$self}__title {
-        @include text-xl;
-        text-transform: uppercase;
-        color: $primary-clr-type-3;
-      }
-      #{$self}__value {
-        //text-transform: none;
-        //color: $primary-clr;
-      }
-    }
-  }
-  &__description {
-    padding: 2.3vh 0;
-    display: flex;
-    border-top: 1px solid $primary-clr-type-3;
-    flex-direction: column;
-    row-gap: 1.5vh;
-    @include text-xl;
-    color: $primary-clr;
+		#{$self}__date,
+		#{$self}__location {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			#{$self}__title {
+				@include text-xl;
+				text-transform: uppercase;
+				color: $primary-clr-type-3;
+			}
+			#{$self}__value {
+				//text-transform: none;
+				//color: $primary-clr;
+			}
+		}
+	}
+	&__description {
+		padding: 2.3vh 0;
+		display: flex;
+		border-top: 1px solid $primary-clr-type-3;
+		flex-direction: column;
+		row-gap: 1.5vh;
+		@include text-xl;
+		color: $primary-clr;
 
-    &-title {
-      @include heading-h3;
-      color: $primary-clr-type-1;
-    }
-  }
-  &__event {
-    display: flex;
-    justify-content: space-between;
-    #{$self}__btn {
-      @include button-type-1;
-      &-icon {
-          width: 24px;
-          height: 24px;
-        }
-    }
-  }
-  &__countdown {
-    display: flex;
-    align-items: center;
-    column-gap: max(2.5vw, 10px);
-    color: $primary-clr;
+		&-title {
+			@include heading-h3;
+			color: $primary-clr-type-1;
+		}
+	}
+	&__event {
+		display: flex;
+		justify-content: space-between;
+		#{$self}__btn {
+			@include button-type-1;
+			&-icon {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+	&__countdown {
+		display: flex;
+		align-items: center;
+		column-gap: max(2.5vw, 10px);
+		color: $primary-clr;
 
-    &-title {
-      @include text-l;
-      text-transform: uppercase;
-      color: $primary-clr-type-3;
-    }
+		&-title {
+			@include text-l;
+			text-transform: uppercase;
+			color: $primary-clr-type-3;
+		}
 
-    &-number, {
-      font-family: Bakbak One, serif;
-      font-size: 64px;
-      font-weight: 400;
-      line-height: 100%;
-    }
-    &-separator {
-      font-size: 48px;
-      line-height: 100%;
-      align-self: start;
-    }
-    &-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  &__marquee {
-    margin-top: auto;
-    padding: max(1.3vh, 20px);
-    overflow: hidden;
-    @include text-l;
-    color: $primary-clr-type-3;
-    white-space: nowrap;
-    #{$self}__marquee-items {
-      display: flex;
-      column-gap: max(1.05vw, 10px);
-      animation: marquee 60s linear infinite;
-      &:hover {
-        animation-play-state: paused;
-      }
-    }
-  }
-  &__speakers {
-    @include text-xl;
-    &-body {
-      text-transform: uppercase;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    padding: max(2.6vh, 30px) 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
+		&-number {
+			font-family:
+				Bakbak One,
+				serif;
+			font-size: 64px;
+			font-weight: 400;
+			line-height: 100%;
+		}
+		&-separator {
+			font-size: 48px;
+			line-height: 100%;
+			align-self: start;
+		}
+		&-block {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	&__marquee {
+		@include text-l;
 
-    &-icon {
-      height: 30px;
+		margin-top: auto;
+		padding: max(1.3vh, 20px);
+		overflow: hidden;
+		color: $primary-clr-type-3;
+		white-space: nowrap;
+		font-weight: 800;
+		&-items {
+			display: flex;
+			column-gap: max(1.05vw, 10px);
+			animation: marquee 60s linear infinite;
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+
+    &-item {
+			@include text-accented;
+
     }
-    &-icon + &-icon {
-      height: 40px;
-    }
-    &-icon + &-icon + &-icon {
-      height: 30px;
-    }
-    &-icon + &-icon + &-icon + &-icon {
-      height: 45px;
-    }
-  }
-  &__description {
-    margin-bottom: 10vh;
-  }
+	}
+	&__speakers {
+		@include text-xl;
+		&-body {
+			text-transform: uppercase;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		padding: max(2.6vh, 30px) 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+		&-icon {
+			height: 30px;
+		}
+		&-icon + &-icon {
+			height: 40px;
+		}
+		&-icon + &-icon + &-icon {
+			height: 30px;
+		}
+		&-icon + &-icon + &-icon + &-icon {
+			height: 45px;
+		}
+	}
+	&__description {
+		margin-bottom: 10vh;
+	}
 }
