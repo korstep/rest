@@ -1,0 +1,51 @@
+.expect {
+	color: $secondary-clr;
+
+	&__body {
+		width: 100%;
+		display: grid;
+		grid-template: repeat(3, auto) / repeat(2, 50%);
+		grid-gap: 24px;
+	}
+	&__title {
+		grid-column: 1 / 3;
+		text-align: center;
+		margin-bottom: 8px;
+	}
+
+	&__item {
+    position: relative;
+		padding: clamp(12px, 2.23vh, 24px) clamp(16px, 3.34vw, 32px);
+		background-color: $primary-clr-type-4;
+
+		&-title {
+			margin-bottom: 8px;
+		}
+
+    &-number {
+      @include heading-h1;
+      @include text-accented;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 120px;
+      text-align: center;
+    }
+	}
+
+	&__list {
+		@include text-l;
+		color: $secondary-clr;
+		&-item {
+			&:before {
+        vertical-align: middle;
+				margin-right: 8px;
+				content: '';
+				display: inline-block;
+				width: 8px;
+				height: 8px;
+				background: $accent-clr;
+			}
+		}
+	}
+}
